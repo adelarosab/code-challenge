@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import request from './request';
-import { ARTICLES_QUERY } from './queries';
+import {ARTICLES_QUERY} from './queries';
 
 class App extends Component {
   // definition
@@ -14,7 +14,7 @@ class App extends Component {
   // lifecycle
   componentWillMount() {
     request(ARTICLES_QUERY).then(response => {
-      this.setState({ articles: response.data.articles });
+      this.setState({articles: response.data.articles});
     });
   }
 
