@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 export function Card({ author, excerpt, title }) {
   return (
-    <header>
-      <h2>{title}</h2>
-      <span>{author}</span>
+    <article>
+      <header>
+        <h2>{title}</h2>
+        <span>{author}</span>
+      </header>
       <p>
         {excerpt}
       </p>
-    </header>
+    </article>
   );
 }
 

@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import request from './request';
-import {ARTICLES_QUERY} from './queries';
+import { ARTICLES_QUERY } from './queries';
+
+import { Card } from './Card';
 
 class App extends Component {
   // definition
@@ -14,17 +16,29 @@ class App extends Component {
   // lifecycle
   componentWillMount() {
     request(ARTICLES_QUERY).then(response => {
-      this.setState({articles: response.data.articles});
+      this.setState({ articles: response.data.articles });
     });
   }
 
   // Renders
   render() {
     return (
-      <div className="App">
-        <h2>Billin code challenge</h2>
-        <pre>{JSON.stringify(this.state.articles, null, 2)}</pre>
-      </div>
+      <section>
+        <header>
+          <h1>Billin code challenge</h1>
+        </header>
+        <main>
+          {this.state.articles.map(({ author, excerpt, id, title }) =>
+            <Card
+              key={id}
+              author={author}
+              excerpt={excerpt}
+              title={title}
+            />,
+          )}
+        </main>
+        <footer>By adrian.delarosab</footer>
+      </section>
     );
   }
 }
