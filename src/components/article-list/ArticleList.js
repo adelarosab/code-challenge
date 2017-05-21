@@ -1,26 +1,43 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import request from '../../request';
+import { ARTICLES_QUERY } from '../../queries';
+
+import { readArticles } from '../../actions/index';
 
 import ArticleDetail from '../article-detail/ArticleDetail';
 import CardList from '../card-list/CardList';
 
-function ArticleList({ books = [] }) {
-  return (
-    <CardList
-      items={books.map(
-        ({ author, excerpt, title }) => ({
-          content: excerpt,
-          subtitle: author,
-          title,
-        }))
-      }
-    />
-  );
+class ArticleList extends Component {
+  constructor({ dispatch }) {
+    super(...arguments);
+
+    request(ARTICLES_QUERY).then(response => {
+      dispatch(readArticles(response.data.articles));
+    });
+  }
+
+  render() {
+    const { articles } = this.props;
+
+    return (
+      <CardList
+        items={articles.map(
+          ({ author, excerpt, title }) => ({
+            content: excerpt,
+            subtitle: author,
+            title,
+          }))
+        }
+      />
+    );
+  }
 }
 
 ArticleList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.shape(ArticleDetail.propTypes)),
+  articles: PropTypes.arrayOf(PropTypes.shape(ArticleDetail.propTypes)),
 };
 
 export default connect(

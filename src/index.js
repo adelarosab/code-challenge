@@ -6,9 +6,12 @@ import { Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { routerReducer } from 'react-router-redux';
 
+import { articles } from './reducers/index';
+
 import App from './components/app/App';
 
 const reducer = combineReducers({
+  articles,
   routing: routerReducer,
 });
 
