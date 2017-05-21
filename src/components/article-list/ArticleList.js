@@ -32,7 +32,7 @@ class ArticleList extends Component {
             className="article-list__item"
             key={id}
           >
-            <Link to={`/${id}`}>
+            <Link to={`article/${id}`}>
               <Card
                 content={excerpt}
                 subtitle={author}

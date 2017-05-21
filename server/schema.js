@@ -1,6 +1,7 @@
 import {
   GraphQLBoolean,
   GraphQLObjectType,
+  GraphQLInputObjectType,
   GraphQLString,
   GraphQLList,
   GraphQLSchema,
@@ -35,6 +36,28 @@ const articleType = new GraphQLObjectType({
   }),
 });
 
+const articleInputType = new GraphQLInputObjectType({
+  name: 'ArticleInput',
+  description: 'This represents a Article',
+  fields: () => ({
+    author: {
+      type: GraphQLString,
+    },
+    content: {
+      type: GraphQLString,
+    },
+    excerpt: {
+      type: GraphQLString,
+    },
+    tags: {
+      type: new GraphQLList(GraphQLString),
+    },
+    title: {
+      type: GraphQLString,
+    },
+  }),
+});
+
 const Query = new GraphQLObjectType({
   name: 'Query',
   description: 'This is a root query',
@@ -48,8 +71,25 @@ const Query = new GraphQLObjectType({
   }),
 });
 
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  description: 'This is a root mutation',
+  fields: () => ({
+    createArticle: {
+      type: articleType,
+      description: 'Create an article.',
+      args: {
+        article: { type: articleInputType },
+      },
+      resolve: (value, { article }) => {
+        return db.Article.create(article);
+      },
+    },
+  }),
+});
 const Schema = new GraphQLSchema({
   query: Query,
+  mutation: Mutation
 });
 
 export default Schema;
