@@ -1,0 +1,16 @@
+@import '../../variable.pcss';
+
+.header {
+  background-color: var(--dark-primary-color);
+  color: var(--text-primary-color);
+  height: 56px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.header__title {
+  font-size: 20px;
+  margin: 0;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkhlYWRlci5wY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLHdCQUF3Qjs7QUFFeEI7RUFDRSw0Q0FBNEM7RUFDNUMsaUNBQWlDO0VBQ2pDLGFBQWE7RUFDYixvQkFBb0I7RUFDcEIsY0FBYztDQUNmOztBQUVEO0VBQ0UsZ0JBQWdCO0VBQ2hCLFVBQVU7Q0FDWCIsImZpbGUiOiJIZWFkZXIuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAndmFyaWFibGUucGNzcyc7XG5cbi5oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1kYXJrLXByaW1hcnktY29sb3IpO1xuICBjb2xvcjogdmFyKC0tdGV4dC1wcmltYXJ5LWNvbG9yKTtcbiAgaGVpZ2h0OiA1NnB4O1xuICBtYXJnaW4tYm90dG9tOiAxNnB4O1xuICBwYWRkaW5nOiAxNnB4O1xufVxuXG4uaGVhZGVyX190aXRsZSB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgbWFyZ2luOiAwO1xufVxuIl19 */

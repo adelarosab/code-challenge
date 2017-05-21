@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import request from './request';
-import { ARTICLES_QUERY } from './queries';
+import request from '../../request';
+import { ARTICLES_QUERY } from '../../queries';
 
-import { Card } from './Card';
-import { Footer } from './Footer';
-import { Header } from './Header';
+import { Card } from '../card/Card';
+import { Footer } from '../footer/Footer';
+import { Header } from '../header/Header';
 
 import './App.css';
 
