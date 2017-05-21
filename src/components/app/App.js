@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router';
+
 import request from '../../request';
 import { ARTICLES_QUERY } from '../../queries';
 
-import Footer from '../footer/Footer';
+import BookDetail from '../book-detail/BookDetail';
+import BookList from '../book-list/BookList';
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 import './App.css';
 

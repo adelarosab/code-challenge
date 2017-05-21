@@ -2,20 +2,21 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Card from '../card/Card';
+import './CardList.css';
 
-export default function CardList({items}) {
+export default function CardList({ items }) {
   return (
-    <ul>
-      <li>
-        {items.map(({ content, subtitle, title }) =>
+    <ul className="card-list">
+      {items.map(({ content, subtitle, title }) =>
+        <li className="card-list__item">
           <Card
             key={title}
             content={content}
             subtitle={subtitle}
             title={title}
-          />,
-        )}
-      </li>
+          />
+        </li>,
+      )}
     </ul>
   );
 }

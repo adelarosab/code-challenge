@@ -28,7 +28,7 @@
     "react-scripts": "0.9.5"
   },
   "scripts": {
-    "build-css": "postcss -c postcss.config.js -d ./src/ -x css **/*.pcss",
+    "build-css": "postcss -c postcss.config.js -d ./src/ -b ./src/ -x css ./src/**/*.pcss",
     "watch-css": "npm run build-css && npm run build-css -- -w",
     "start-js": "react-scripts start",
     "build": "npm run build-css && react-scripts build",
