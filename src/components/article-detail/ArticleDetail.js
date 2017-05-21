@@ -3,7 +3,7 @@ import React from 'react';
 
 import Drawer from '../drawer/Drawer';
 
-export default function BookDetail({ author, excerpt, title }) {
+export default function ArticleDetail({ author, excerpt, title }) {
   return (
     <Drawer
       subtitle={author}
@@ -14,7 +14,7 @@ export default function BookDetail({ author, excerpt, title }) {
   );
 }
 
-BookDetail.propTypes = {
+ArticleDetail.propTypes = {
   author: PropTypes.string,
   excerpt: PropTypes.string,
   title: PropTypes.string.isRequired

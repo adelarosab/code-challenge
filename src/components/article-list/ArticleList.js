@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import BookDetail from '../book-detail/BookDetail';
+import ArticleDetail from '../article-detail/ArticleDetail';
 import CardList from '../card-list/CardList';
 
-function BookList({ books = [] }) {
+function ArticleList({ books = [] }) {
   return (
     <CardList
       items={books.map(
@@ -19,10 +19,10 @@ function BookList({ books = [] }) {
   );
 }
 
-BookList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.shape(BookDetail.propTypes)),
+ArticleList.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.shape(ArticleDetail.propTypes)),
 };
 
 export default connect(
   state => ({ articles: state.articles || [] }),
-)(BookList);
+)(ArticleList);

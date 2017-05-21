@@ -4,8 +4,8 @@ import { Route } from 'react-router';
 import request from '../../request';
 import { ARTICLES_QUERY } from '../../queries';
 
-import BookDetail from '../book-detail/BookDetail';
-import BookList from '../book-list/BookList';
+import BookDetail from '../article-detail/ArticleDetail';
+import BookList from '../article-list/ArticleList';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
