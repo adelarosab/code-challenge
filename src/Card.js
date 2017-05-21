@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Card.css';
 
 export function Card({ author, excerpt, title }) {
   return (
-    <article>
-      <header>
-        <h2>{title}</h2>
-        <span>{author}</span>
+    <article className="card">
+      <header className="card__header">
+        <h2 className="card__title">{title}</h2>
+        <span className="card__subtitle">{author}</span>
       </header>
-      <p>
+      <p className="card__content">
         {excerpt}
       </p>
     </article>
