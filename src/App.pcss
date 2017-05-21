@@ -16,15 +16,30 @@ body {
 }
 
 body {
-  background-color: var(--primary-background-color);
+  background-color: #eee;
   color: var(--primary-text-color);
   font-family: 'Open Sans', sans-serif;
 }
 
 main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   padding: 0 16px;
 }
 
 main .card {
   margin-bottom: 16px;
+}
+
+@media (min-width: 480px) {
+  main .card {
+    max-width: 48%;
+  }
+}
+
+@media (min-width: 840px) {
+  main .card {
+    max-width: 32%;
+  }
 }

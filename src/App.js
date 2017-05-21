@@ -6,6 +6,8 @@ import { Card } from './Card';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+import './App.css';
+
 class App extends Component {
   // definition
   constructor(props) {
