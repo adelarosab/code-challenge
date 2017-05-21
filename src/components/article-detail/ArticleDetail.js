@@ -6,11 +6,12 @@ import request from '../../request';
 import { ARTICLES_QUERY } from '../../queries';
 
 import Drawer from '../drawer/Drawer';
+import './ArticleDetail.css';
 
 class ArticleDetail extends Component {
   constructor({ match }) {
     super(...arguments);
-    this.state = {};
+    this.state = {tags: []};
     this.id = match.params.id;
   }
 
@@ -32,15 +33,28 @@ class ArticleDetail extends Component {
   }
 
   render() {
-    const { author, content, id, title } = this.state;
+    const { author, content, id, tags, title } = this.state;
 
     return (
       <Drawer
         key={id}
+        className="article-detail"
         subtitle={author}
         title={title}
       >
-        <p>{content}</p>
+        <div>
+          <ul className="article-detail__tags">
+            {tags.map(tag =>
+              <li
+                key={tag}
+                className="article-detail__tag"
+              >
+                {tag}
+              </li>,
+            )}
+          </ul>
+          <p>{content}</p>
+        </div>
       </Drawer>
     );
   }
