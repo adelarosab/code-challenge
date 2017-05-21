@@ -8,7 +8,9 @@ import { ARTICLES_QUERY } from '../../queries';
 import { readArticles } from '../../actions/index';
 
 import ArticleDetail from '../article-detail/ArticleDetail';
-import CardList from '../card-list/CardList';
+import Card from '../card/Card';
+
+import './ArticleList.css';
 
 class ArticleList extends Component {
   constructor({ dispatch }) {
@@ -23,15 +25,20 @@ class ArticleList extends Component {
     const { articles } = this.props;
 
     return (
-      <CardList
-        items={articles.map(
-          ({ author, excerpt, title }) => ({
-            content: excerpt,
-            subtitle: author,
-            title,
-          }))
-        }
-      />
+      <ul className="article-list">
+        {articles.map(({ author, excerpt, id, title }) =>
+          <li
+            className="article-list__item"
+            key={id}
+          >
+            <Card
+              content={excerpt}
+              subtitle={author}
+              title={title}
+            />
+          </li>,
+        )}
+      </ul>
     );
   }
 }
