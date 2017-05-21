@@ -4,6 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.1",
+    "npm-run-all": "^4.0.2",
+    "postcss": "^6.0.1",
+    "postcss-cli": "^4.0.0",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-import": "^10.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
@@ -18,8 +23,11 @@
     "react-scripts": "0.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "postcss -c postcss.config.js -d ./src/ -x css **/*.pcss",
+    "watch-css": "npm run build-css && npm run build-css -- -w",
+    "start-js": "react-scripts start",
+    "build": "npm run build-css && react-scripts build",
+    "start": "npm-run-all -p watch-css start-js",
     "test": "react-scripts test --env=jsdom"
   }
 }

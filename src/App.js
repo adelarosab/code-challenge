@@ -3,6 +3,8 @@ import request from './request';
 import { ARTICLES_QUERY } from './queries';
 
 import { Card } from './Card';
+import { Footer } from './Footer';
+import { Header } from './Header';
 
 class App extends Component {
   // definition
@@ -24,9 +26,7 @@ class App extends Component {
   render() {
     return (
       <section>
-        <header>
-          <h1>Billin code challenge</h1>
-        </header>
+        <Header />
         <main>
           {this.state.articles.map(({ author, excerpt, id, title }) =>
             <Card
@@ -37,7 +37,7 @@ class App extends Component {
             />,
           )}
         </main>
-        <footer>By adrian.delarosab</footer>
+        <Footer />
       </section>
     );
   }
