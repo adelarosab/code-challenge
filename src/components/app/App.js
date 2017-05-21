@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import BookDetail from '../article-detail/ArticleDetail';
-import BookList from '../article-list/ArticleList';
+import ArticleDetail from '../article-detail/ArticleDetail';
+import ArticleList from '../article-list/ArticleList';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
@@ -11,10 +12,12 @@ import './App.css';
 export default function App() {
   return (
     <section>
-      <Header />
+      <Link to="/">
+        <Header />
+      </Link>
       <main>
-        <Route exact component={BookList} />
-        <Route path=":id" component={BookDetail} />
+        <Route exact path="/" component={ArticleList} />
+        <Route path="/:id" component={ArticleDetail} />
       </main>
       <Footer />
     </section>

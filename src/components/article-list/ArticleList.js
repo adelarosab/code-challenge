@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import request from '../../request';
 import { ARTICLES_QUERY } from '../../queries';
@@ -31,11 +32,13 @@ class ArticleList extends Component {
             className="article-list__item"
             key={id}
           >
-            <Card
-              content={excerpt}
-              subtitle={author}
-              title={title}
-            />
+            <Link to={`/${id}`}>
+              <Card
+                content={excerpt}
+                subtitle={author}
+                title={title}
+              />
+            </Link>
           </li>,
         )}
       </ul>
