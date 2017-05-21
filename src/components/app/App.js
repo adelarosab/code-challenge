@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import request from '../../request';
 import { ARTICLES_QUERY } from '../../queries';
 
-import { Card } from '../card/Card';
-import { Footer } from '../footer/Footer';
-import { Header } from '../header/Header';
+import Footer from '../footer/Footer';
+import Header from '../header/Header';
 
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   // definition
   constructor(props) {
     super(props);
@@ -30,19 +29,11 @@ class App extends Component {
       <section>
         <Header />
         <main>
-          {this.state.articles.map(({ author, excerpt, id, title }) =>
-            <Card
-              key={id}
-              author={author}
-              excerpt={excerpt}
-              title={title}
-            />,
-          )}
+          <Route exact component={BookList} />
+          <Route path=":id" component={BookDetail} />
         </main>
         <Footer />
       </section>
     );
   }
 }
-
-export default App;
